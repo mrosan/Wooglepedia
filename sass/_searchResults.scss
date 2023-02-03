@@ -3,12 +3,12 @@
 	padding: 0.5rem 1rem;
 	width: 90vw;
 
-	@include mediaQuery(768px) {
+	@include mediaQuery($mid-threshold) {
 		width: 75vw;
 	}
 
 	/*
-	@include mediaQuery(1000px) {
+	@include mediaQuery($high-threshold) {
 		width: 60vw;
 	}
 	*/
@@ -18,13 +18,12 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		//border: 1px solid black;
 
 		.stats {
 			color: $stats-color;
 			font-size: 0.75rem;
 
-			@include mediaQuery(768px) {
+			@include mediaQuery($mid-threshold) {
 				font-size: 1rem;
 			}
 		}
@@ -40,7 +39,7 @@
 			padding: 0.25rem 0;
 			margin-bottom: 0.25rem;
 
-			@include mediaQuery(768px) {
+			@include mediaQuery($mid-threshold) {
 				padding: 0.5rem 0;
 				margin-bottom: 0.5rem;
 			}
@@ -60,7 +59,7 @@
 			text-overflow: ellipsis;
 			padding: 3px 2px;
 
-			@include mediaQuery(768px) {
+			@include mediaQuery($mid-threshold) {
 				font-size: 1.5rem;
 				line-height: 1.75rem;
 				margin-bottom: 0.5rem;
@@ -89,7 +88,7 @@
 				color: $stats-color;
 				font-size: 0.75rem;
 
-				@include mediaQuery(768px) {
+				@include mediaQuery($mid-threshold) {
 					font-size: 1rem;
 				}
 			}
@@ -111,7 +110,7 @@
 				font-size: 14px;
 				line-height: 18px;
 
-				@include mediaQuery(768px) {
+				@include mediaQuery($mid-threshold) {
 					font-size: 18px;
 					line-height: 22px;
 				}
@@ -134,7 +133,7 @@
 			i {
 				font-size: 0.75rem;
 
-				@include mediaQuery(768px) {
+				@include mediaQuery($mid-threshold) {
 					font-size: 1rem;
 				}
 			}

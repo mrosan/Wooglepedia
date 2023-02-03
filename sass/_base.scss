@@ -13,6 +13,8 @@ $logo-green: #2f9445;
 $logo-blue: #086aeb;
 $font-stack: "Roboto", sans-serif;
 $footer-h: 60px;
+$mid-threshold: 768px;
+$high-threshold: 1000px;
 
 %flex {
 	display: flex;
@@ -66,7 +68,7 @@ footer {
 		color: $stats-color;
 		font-size: 0.5rem;
 
-		@include mediaQuery(768px) {
+		@include mediaQuery($mid-threshold) {
 			font-size: 0.75rem;
 		}
 

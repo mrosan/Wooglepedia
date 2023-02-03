@@ -8,7 +8,7 @@
 		font-size: 2.5rem;
 		margin-bottom: 0.5rem;
 
-		@include mediaQuery(768px) {
+		@include mediaQuery($mid-threshold) {
 			font-size: 4rem;
 			letter-spacing: -10px;
 		}
@@ -22,16 +22,17 @@
 		padding: 0.25rem 0.25rem 0.25rem 0.75rem;
 		background-color: $input-background-color;
 
-		@include mediaQuery(768px) {
+		@include mediaQuery($mid-threshold) {
 			width: 75vw;
 			padding: 0.5rem 1.5rem;
 		}
 
 		/*
-		@include mediaQuery(1000px) {
+		@include mediaQuery($high-threshold) {
 			width: 60vw;
 		}
-*/
+		*/
+
 		input[type="text"] {
 			flex-grow: 1;
 			font-size: 0.75rem;
@@ -42,7 +43,7 @@
 			min-width: 150px;
 			background: transparent;
 
-			@include mediaQuery(768px) {
+			@include mediaQuery($mid-threshold) {
 				font-size: 1.25rem;
 			}
 		}
@@ -59,7 +60,7 @@
 				font-family: "Font Awesome 5 Free";
 				font-size: 1rem;
 
-				@include mediaQuery(768px) {
+				@include mediaQuery($mid-threshold) {
 					font-size: 1.5rem;
 				}
 			}
@@ -89,7 +90,7 @@
 		}
 
 		.searchButton {
-			@include mediaQuery(768px) {
+			@include mediaQuery($mid-threshold) {
 				padding-left: 1rem;
 			}
 		}
@@ -101,7 +102,7 @@
 			color: $stats-color;
 			border-right: thin solid $clear-button-color;
 
-			@include mediaQuery(768px) {
+			@include mediaQuery($mid-threshold) {
 				padding: 0 1rem;
 			}
 		}
