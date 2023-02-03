@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="dist/css/style.min.css" />
+	<link rel="shortcut icon" href="#" />
+	<script src="./js/main.js" type="module"></script>
+	<title>Wooglepedia</title>
+</head>
+
+<body>
+	<main>
+		<h1 class="offscreen">Wooglepedia - Search and save Wikipedia articles!</h1>
+		<section class="searchEntry">
+			<h2 class="offscreen">Search for any article</h2>
+			<div class="logo" aria-hidden="true">
+				<span class="blue">W</span>
+				<span class="red">o</span>
+				<span class="yellow">o</span>
+				<span class="blue">g</span>
+				<span class="green">l</span>
+				<span class="red">e</span>
+				<span class="blue">p</span>
+				<span class="red">e</span>
+				<span class="yellow">d</span>
+				<span class="blue">i</span>
+				<span class="green">a</span>
+			</div>
+			<form id="searchBar" class="searchBar" role="search">
+				<label class="offscreen" for="search">
+					Enter a search term or phrase.
+				</label>
+				<input id="search" type="text" autocomplete="off" />
+				<div id="clear" class="none button clearButton" role="button" tabindex="0" aria-label="Clear search terms">
+					<i class="fa-sharp fa-solid fa-x"></i>
+				</div>
+				<button id="searchButton" class="button searchButton" type="submit" aria-label="Submit button">
+					<i class="fa-solid fa-magnifying-glass blue"></i>
+				</button>
+			</form>
+		</section>
+		<section class="resultList">
+			<h2 class="offscreen">Search results</h2>
+			<div class="statsBar">
+				<div id="stats" class="stats" aria-live="assertive"></div>
+				<div class="actionButtons">
+					<div id="history" class="button actionButton" role="button" tabindex="0" aria-label="List visited articles">
+						<i class="fa-solid fa-clock-rotate-left"></i>
+					</div>
+					<div id="favorite" class="button actionButton" role="button" tabindex="0" aria-label="List favorite articles">
+						<i class="fa-solid fa-star"></i>
+					</div>
+				</div>
+			</div>
+			<div id="searchResults" class="searchResults">
+			</div>
+		</section>
+	</main>
+	<footer>
+		<p>
+			<span aria-hidden="true">&lt;&lt;</span>
+			Powered by <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
+			<span aria-hidden="true">&gt;&gt;</span>
+		</p>
+	</footer>
+</body>
+
+</html>

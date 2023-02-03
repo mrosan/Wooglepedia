@@ -1,0 +1,148 @@
+.resultList {
+	@include flexColumn;
+	padding: 0.5rem 1rem;
+	width: 90vw;
+
+	@include mediaQuery(768px) {
+		width: 75vw;
+	}
+
+	/*
+	@include mediaQuery(1000px) {
+		width: 60vw;
+	}
+	*/
+
+	.statsBar {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		//border: 1px solid black;
+
+		.stats {
+			color: $stats-color;
+			font-size: 0.75rem;
+
+			@include mediaQuery(768px) {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	.searchResults {
+		width: 100%;
+		padding: 1rem 0;
+
+		.resultItem {
+			@include flexColumn;
+			width: 100%;
+			padding: 0.25rem 0;
+			margin-bottom: 0.25rem;
+
+			@include mediaQuery(768px) {
+				padding: 0.5rem 0;
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		.resultTitle {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			text-align: left;
+			font-size: 1rem;
+			line-height: 1.25rem;
+			margin-bottom: 0.25rem;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			padding: 3px 2px;
+
+			@include mediaQuery(768px) {
+				font-size: 1.5rem;
+				line-height: 1.75rem;
+				margin-bottom: 0.5rem;
+			}
+
+			a {
+				color: $link-color;
+				text-decoration: none;
+				cursor: pointer;
+			}
+
+			a:visited {
+				color: $link-visited-color;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			a:focus {
+				outline: 2px solid $link-outline-color
+			}
+
+			.favSaveButton {
+				margin-left: 0.5rem;
+				color: $stats-color;
+				font-size: 0.75rem;
+
+				@include mediaQuery(768px) {
+					font-size: 1rem;
+				}
+			}
+
+			.favEntry {
+				color: $logo-yellow;
+			}
+		}
+
+		.resultContents {
+			display: flex;
+
+			.resultImage {
+				margin-right: 0.5rem;
+				margin-top: 0.15rem;
+			}
+
+			.resultText {
+				font-size: 14px;
+				line-height: 18px;
+
+				@include mediaQuery(768px) {
+					font-size: 18px;
+					line-height: 22px;
+				}
+			}
+		}
+	}
+
+	.actionButtons {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: $stats-color;
+
+		.actionButton {
+			margin-left: 0.5rem;
+			cursor: pointer;
+			outline: none;
+			background: transparent;
+
+			i {
+				font-size: 0.75rem;
+
+				@include mediaQuery(768px) {
+					font-size: 1rem;
+				}
+			}
+		}
+
+		.actionButton:hover,
+		.actionButton:focus {
+			color: $logo-yellow;
+		}
+	}
+}

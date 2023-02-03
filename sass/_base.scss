@@ -1,0 +1,81 @@
+$search-bar-border: #8f8c8cb9;
+$clear-button-color: #8d6666;
+$background-color: #d8e9fc;
+$input-background-color: #ecf5ff;
+$stats-color: #635d5d;
+$font-color: #000000;
+$link-color: #1c0e97;
+$link-visited-color: #550f70;
+$link-outline-color: #10001a;
+$logo-red: #e21e1e;
+$logo-yellow: #ffa023;
+$logo-green: #2f9445;
+$logo-blue: #086aeb;
+$font-stack: "Roboto", sans-serif;
+$footer-h: 60px;
+
+%flex {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flexColumn {
+	@extend %flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+@mixin flexCenter {
+	@extend %flex;
+	justify-content: center;
+}
+
+@mixin mediaQuery($size) {
+	@media only screen and (min-width: $size) {
+		@content;
+	}
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: $background-color;
+	color: $font-color;
+	width: 100vw;
+	min-height: 100vh;
+	font-family: $font-stack;
+	font-size: 22px;
+}
+
+main {
+	@include flexColumn;
+	min-height: calc(100vh - $footer-h);
+}
+
+footer {
+	width: 100%;
+	height: $footer-h;
+	@include flexCenter;
+
+	p {
+		color: $stats-color;
+		font-size: 0.5rem;
+
+		@include mediaQuery(768px) {
+			font-size: 0.75rem;
+		}
+
+		a {
+			color: $stats-color
+		}
+	}
+}
+
+img {
+	display: block;
+}
