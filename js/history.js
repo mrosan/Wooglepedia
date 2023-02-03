@@ -1,6 +1,6 @@
 import { getWikiResultById } from "./data.js"
 import { clearSearchText } from "./searchBar.js"
-import { buildSearchResults, deleteSearchResults, clearStats } from "./searchResults.js"
+import { buildSearchResults, deleteSearchResults, clearStats, setStatsLine } from "./searchResults.js"
 
 export async function openHistoryList() {
 	deleteSearchResults();
@@ -15,7 +15,13 @@ export async function openHistoryList() {
 		}
 	}
 	buildSearchResults(resultList);
-	setStatsLine(resultList.length);
+	let infoStr;
+	if (resultList.length) {
+		infoStr = "Displaying " + resultList.length + " history results."
+	} else {
+		infoStr = "You haven't visited any articles yet."
+	}
+	setStatsLine(infoStr);
 }
 
 export function handleLinkClicked(itemId) {
@@ -45,13 +51,4 @@ function createHistoryItem(itemId) {
 		id: itemId,
 		date: new Date()
 	};
-}
-
-function setStatsLine(resultNum) {
-	const stats = document.getElementById("stats");
-	if (resultNum) {
-		stats.textContent = "Displaying " + resultNum + " history results."
-	} else {
-		stats.textContent = "You haven't visited any articles yet."
-	}
 }

@@ -94,11 +94,7 @@ export function clearStats(loading = false) {
 	document.getElementById("stats").textContent = loading ? "Searching..." : "";
 }
 
-export function setStatsLine(resultNum) {
+export function setStatsLine(text) {
 	const stats = document.getElementById("stats");
-	if (resultNum) {
-		stats.textContent = "Displaying " + resultNum + " results."
-	} else {
-		stats.textContent = "No results found."
-	}
+	stats.textContent = text;
 }

@@ -1,8 +1,8 @@
 # Wooglepedia
-Search Wikipedia articles.
+Search for Wikipedia articles.
 
 ## Introduction
-This small project is a simple website that uses the Wikipedia API to search for articles.
+This small project is a simple website that uses the Wikipedia API to find articles.
 
 ## Technology stack
 - Vanilla JavaScript (ES6+)
@@ -14,6 +14,8 @@ This small project is a simple website that uses the Wikipedia API to search for
 - Event handling
 - Accessibility support
 - DRY (search- and result item handling)
+- Local storage
+- async/await
 
 ## Future plans
 I'm planning to extend the code I've written here with TypeScript.

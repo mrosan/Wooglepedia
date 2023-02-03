@@ -37,9 +37,14 @@ async function processSearch() {
 	const searchTerm = getSearchTerm();
 	if (searchTerm === "")
 		return;
+	setStatsLine("Searching...");
 	const res = await fetchSearchResults(searchTerm);
+	let infoStr;
 	if (res?.length) {
 		buildSearchResults(res);
+		infoStr = "Displaying " + res.length + " results.";
+	} else {
+		infoStr = "No results found."
 	}
-	setStatsLine(res?.length ?? 0);
+	setStatsLine(infoStr);
 }

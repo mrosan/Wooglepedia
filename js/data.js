@@ -7,7 +7,7 @@ export function getSearchTerm() {
 	return searchTerm;
 }
 
-// Performs a search through the Wiki API
+// Performs a search for a list of results
 export async function fetchSearchResults(searchTerm) {
 	const wikiSearchRequest = getWikiSearchRequest(searchTerm);
 	const wikiSearchResults = await requestData(wikiSearchRequest);
@@ -16,6 +16,17 @@ export async function fetchSearchResults(searchTerm) {
 		res = processWikiResults(wikiSearchResults.query.pages);
 	}
 	return res;
+}
+
+// Performs a search for a single article
+export async function getWikiResultById(id) {
+	const request = getBaseRequest().concat([
+		`&pageids=${id}`,
+	]);
+	const rawSearchStr = request.join("");
+	const searchStr = encodeURI(rawSearchStr);
+	const result = await requestData(searchStr);
+	return result?.query?.pages[id] ?? null;
 }
 
 // Creates a request string for the Wiki API
@@ -73,19 +84,4 @@ function processWikiResults(results) {
 		res.push({ id, title, img, text });
 	})
 	return res;
-}
-
-export async function getWikiResultById(id) {
-	const request = getBaseRequest().concat([
-		`&pageids=${id}`,
-	]);
-
-	//http://en.wikipedia.org/w/api.php?action=query&prop=info&pageids=<your_pageid_here>&inprop=url
-
-	//https://en.wikipedia.org/w/api.php?action=query&prop=pageimages|extracts&pageids=95218&format=json&origin=*&explaintext&exintro&exlimit=max
-
-	const rawSearchStr = request.join("");
-	const searchStr = encodeURI(rawSearchStr);
-	const result = await requestData(searchStr);
-	return result?.query?.pages[id] ?? null;
 }

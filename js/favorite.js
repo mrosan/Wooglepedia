@@ -1,6 +1,6 @@
 import { getWikiResultById } from "./data.js"
 import { clearSearchText } from "./searchBar.js"
-import { buildSearchResults, deleteSearchResults, clearStats } from "./searchResults.js"
+import { buildSearchResults, deleteSearchResults, clearStats, setStatsLine } from "./searchResults.js"
 
 export function getFavoriteList() {
 	const favorite = localStorage.getItem("favoriteList");
@@ -10,7 +10,7 @@ export function getFavoriteList() {
 export function addFavorite(itemId) {
 	const favoriteList = getFavoriteList();
 	if (favoriteList.length === 20) {
-		setFavoriteFullMessage();
+		setStatsLine("Couldn't save article, because your favorite list is full.")
 		return false;
 	} else {
 		const favoriteItem = createFavoriteItem(itemId);
@@ -39,25 +39,17 @@ export async function openFavoriteList() {
 		}
 	}
 	buildSearchResults(resultList, true);
-	setStatsLine(resultList.length);
+	let infoStr;
+	if (resultList.length) {
+		infoStr = "Displaying " + resultList.length + " favorite results."
+	} else {
+		infoStr = "Your favorite list is empty."
+	}
+	setStatsLine(infoStr);
 }
 
 function createFavoriteItem(itemId) {
 	return {
 		id: itemId
 	};
-}
-
-function setFavoriteFullMessage() {
-	const stats = document.getElementById("stats");
-	stats.textContent = "Couldn't save article, because your favorite list is full.";
-}
-
-function setStatsLine(resultNum) {
-	const stats = document.getElementById("stats");
-	if (resultNum) {
-		stats.textContent = "Displaying " + resultNum + " favorite results."
-	} else {
-		stats.textContent = "Your favorite list is empty."
-	}
 }
