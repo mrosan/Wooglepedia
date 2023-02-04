@@ -5,17 +5,18 @@ Search for Wikipedia articles.
 This small project is a simple website that uses the Wikipedia API to find articles.
 
 ## Technology stack
-- Vanilla JavaScript (ES6+)
+- Vanilla JavaScript
 - HTML
 - Sass
 
 ## Highlights
 - DOM manipulation
-- Event handling
+- Responsive web design
 - Accessibility support
-- DRY (search- and result item handling)
-- Local storage
-- async/await
+- Event handling
+- DRY principles
+- Storage usage
+- Asyncronous calls
 
 ## Future plans
 I'm planning to extend the code I've written here with TypeScript.
